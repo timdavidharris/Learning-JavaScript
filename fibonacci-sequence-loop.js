@@ -5,20 +5,17 @@ function fibonacciGenerator(n) {
     } else if (n === 2) {
         output.push(0, 1)
     } else {
-        var output = [0, 1, 1];
-        var lastArrayNumber = output.slice(-1).pop();
-        var secondToLastArrayNumber = output.slice(-2).pop();
-        var newNumber = lastArrayNumber + secondToLastArrayNumber;
-        for (n = 3; n == output.length; output.push(newNumber)) {
-            console.log(output);
+        output = [0, 1];
+
+        for (var i = 2; i < n; i++) {
+            output.push(output[output.length - 2] + output[output.length - 1]);
         }
       }
     console.log(output);
-    console.log(lastArrayNumber);
-    console.log(secondToLastArrayNumber);
-    console.log(newNumber);
-    console.log(output.length)
+    return output;
 
 }
 
+fibonacciGenerator(1);
 fibonacciGenerator(10);
+fibonacciGenerator(20);
